@@ -17,37 +17,22 @@ AutoPricePrediction/
 │
 
 ├── app.py                     		# Flask backend file
-
 ├── PRCP\_1017\_AutoPricePred.ipynb  	# Jupyter notebook (data analysis + model training)
-
 ├── model.pkl                  		# Trained XGBoost model
-
-├── y\_scaler.pkl              		# StandardScaler for input scaling
-
+├── y_scaler.pkl              		# StandardScaler for input scaling
+├── Procfile                      # Deployment instruction file for Render/Railway
 │
-
 ├── templates/                 		# HTML frontend templates
-
 │   ├── index.html             		# Main webpage for input and prediction
-
 │
-
 ├── static/                    		# CSS, JS, and image assets
-
 │   ├── style.css              		# Page styling
-
 │   └── script.js              		# Page functions
-
 │   └── info.png
-
 │   └── background.png
-
 │  └── favicon.png
-
 │
-
 ├── requirements.txt           		# Python dependencies
-
 └── readme.md                  		# Project documentation (this file)
 
 
@@ -161,5 +146,6 @@ Anyone new to the project can easily set it up, retrain the model in Colab, and 
 Arockia Roshan A
 
 Data Science Enthusiast | ML Developer  
+
 
 
