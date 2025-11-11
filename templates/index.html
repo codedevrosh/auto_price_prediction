@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Auto Price Prediction — Dream Cars</title>
+
+  <!-- Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}" />
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div class="brand-wrap">
+        <span class="brand">Dream Cars</span>
+        <span class="tagline">Make Yours</span>
+      </div>
+    </header>
+
+    <section class="container">
+      <!-- FORM CARD -->
+      <form id="prediction-form" class="card form-card" autocomplete="off">
+        <h2 class="card-title">Car features</h2>
+
+        <div class="grid">
+          <!-- Feature 1 -->
+          <div class="form-group">
+            <label for="symboling">Symboling
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="A risk factor assigned to each vehicle, where higher values mean more risk-prone.">
+            </label>
+            <select id="symboling" inputmode="numeric" required>
+              <option value="">Select</option>
+              <option value="-2">-2</option>
+              <option value="-1">-1</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="form-group">
+            <label for="normalized-losses">Normalized Losses
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="Normalized insurance risk rating .">
+            </label>
+            <input type="number" id="normalized-losses" min="65" max="256" step="2" placeholder="e.g. 100" required>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="form-group">
+            <label for="make">Make
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="Car manufacturer.">
+            </label>
+            <select id="make" required>
+              <option value="">Select Make</option>
+              <option value="toyota">Toyota</option>
+              <option value="nissan">Nissan</option>
+              <option value="mazda">Mazda</option>
+              <option value="mitsubishi">Mitsubishi</option>
+              <option value="honda">Honda</option>
+              <option value="subaru">Subaru</option>
+              <option value="volkswagen">Volkswagen</option>
+              <option value="volvo">Volvo</option>
+              <option value="peugeot">Peugeot</option>
+              <option value="dodge">Dodge</option>
+              <option value="mercedes-benz">Mercedes-Benz</option>
+              <option value="bmw">BMW</option>
+              <option value="plymouth">Plymouth</option>
+              <option value="audi">Audi</option>
+              <option value="saab">Saab</option>
+              <option value="porsche">Porsche</option>
+              <option value="jaguar">Jaguar</option>
+              <option value="chevrolet">Chevrolet</option>
+              <option value="alfa-romero">Alfa-Romeo</option>
+              <option value="isuzu">Isuzu</option>
+              <option value="renault">Renault</option>
+              <option value="mercury">Mercury</option>
+            </select>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="form-group">
+            <label for="fuel-type">Fuel Type
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="Gas or diesel.">
+            </label>
+            <select id="fuel-type" required>
+              <option value="">Select</option>
+              <option value="gas">Gas</option>
+              <option value="diesel">Diesel</option>
+            </select>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="form-group">
+            <label for="aspiration">Aspiration
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="Std or Turbo.">
+            </label>
+            <select id="aspiration" required>
+              <option value="">Select</option>
+              <option value="std">Standard (std)</option>
+              <option value="turbo">Turbo</option>
+            </select>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="form-group">
+            <label for="num-of-doors">Number of Doors
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="Two or four doors.">
+            </label>
+            <select id="num-of-doors" required>
+              <option value="">Select</option>
+              <option value="two">Two</option>
+              <option value="four">Four</option>
+            </select>
+          </div>
+
+          <!-- Feature 7 -->
+          <div class="form-group">
+            <label for="body-style">Body Style
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="Sedan/hatchback/wagon/convertible.">
+            </label>
+            <select id="body-style" required>
+              <option value="">Select</option>
+              <option value="sedan">Sedan</option>
+              <option value="hatchback">Hatchback</option>
+              <option value="wagon">Wagon</option>
+              <option value="hardtop">Hardtop</option>
+              <option value="convertible">Convertible</option>
+            </select>
+          </div>
+
+          <!-- Feature 8 -->
+          <div class="form-group">
+            <label for="drive-wheels">Drive Wheels
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="FWD/RWD/4WD.">
+            </label>
+            <select id="drive-wheels" required>
+              <option value="">Select</option>
+              <option value="fwd">FWD</option>
+              <option value="rwd">RWD</option>
+              <option value="4wd">4WD</option>
+            </select>
+          </div>
+
+          <!-- Feature 9 -->
+          <div class="form-group">
+            <label for="engine-location">Engine Location
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon" title="Front or rear.">
+            </label>
+            <select id="engine-location" required>
+              <option value="">Select</option>
+              <option value="front">Front</option>
+              <option value="rear">Rear</option>
+            </select>
+          </div>
+
+          <!-- Feature 10 -->
+          <div class="form-group">
+            <label for="wheel-base">Wheel Base 
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                            title="The distance between the centers of the front and rear wheels (in inches). A longer wheelbase usually provides more stability and interior space.">
+            </label>
+            <input type="number" id="wheel-base" min="86.6" max="120.9" step="0.5" placeholder="e.g. 95.7" required>
+          </div>
+
+          <!-- Feature 11 -->
+          <div class="form-group">
+            <label for="length">Length
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                        title="The total length of the car from front to back (in inches). Larger cars often provide more cabin space and stability but may cost more.">
+            </label>
+            <input type="number" id="length" min="141.1" max="208.1" step="0.5" placeholder="e.g. 170.5" required>
+          </div>
+
+          <!-- Feature 12 -->
+          <div class="form-group">
+            <label for="width">Width
+                 <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                            title="The total width of the car (in inches). Wider cars often provide better stability and interior comfort but can affect parking space and aerodynamics.">
+                    </label>
+            </label>
+            <input type="number" id="width" min="60.3" max="72.0" step="0.5" placeholder="e.g. 65.5" required>
+          </div>
+
+          <!-- Feature 13 -->
+          <div class="form-group">
+            <label for="height">Height
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                            title="The vertical measurement of the car from the ground to its highest point (in inches). It affects aerodynamics, interior space, and overall vehicle profile. Taller vehicles may offer more headroom and cargo space but can have higher wind resistance, impacting fuel efficiency.">
+            </label>
+            <input type="number" id="height" min="47.8" max="59.8" step="0.2" placeholder="e.g. 55.5" required>
+          </div>
+
+          <!-- Feature 14 -->
+          <div class="form-group">
+            <label for="curb-weight">Curb Weight 
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                            title="The total weight of the vehicle (in lbs) including standard equipment, necessary operating consumables (like motor oil and coolant), and a full tank of fuel, but excluding passengers and cargo. It affects fuel efficiency, handling, and performance.">
+            </label>
+            <input type="number" id="curb-weight" min="1488" max="4066" step="100" placeholder="e.g. 2500" required>
+          </div>
+
+          <!-- Feature 15 -->
+          <div class="form-group">
+            <label for="engine-type">Engine Type
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                            title="Specifies the configuration of the engine. Common types include OHC (Overhead Cam), DOHC (Double Overhead Cam), and others, each affecting performance and efficiency differently.">
+            </label>
+            <select id="engine-type" required>
+              <option value="">Select</option>
+              <option value="ohc">OHC</option>
+              <option value="ohcf">OHCF</option>
+              <option value="shcv">SHCV</option>
+              <option value="i">I</option>
+              <option value="dohc">DOHC</option>
+              <option value="rotor">Rotor</option>
+            </select>
+          </div>
+
+          <!-- Feature 16 -->
+          <div class="form-group">
+            <label for="num-of-cylinders">Number of Cylinders
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                            title="Indicates how many cylinders the car engine has. More cylinders generally mean higher power output but lower fuel efficiency.">
+            </label>
+            <select id="num-of-cylinders" required>
+              <option value="">Select</option>
+              <option value="four">Four</option>
+              <option value="six">Six</option>
+              <option value="five">Five</option>
+              <option value="eight">Eight</option>
+              <option value="two">Two</option>
+              <option value="twelve">Twelve</option>
+              <option value="three">Three</option>
+            </select>
+          </div>
+
+          <!-- Feature 17 -->
+          <div class="form-group">
+            <label for="engine-size">Engine Size
+                 <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                            title="Represents the total engine displacement (in cubic inches or cc). Larger engines usually provide more power but consume more fuel.">
+            </label>
+            <input type="number" id="engine-size" min="61" max="326" step="5" placeholder="e.g. 200" required>
+          </div>
+
+          <!-- Feature 18 -->
+          <div class="form-group">
+            <label for="fuel-system">Fuel System
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                            title="Specifies the type of fuel delivery system used in the engine. MPFI: Multi-Point Fuel Injection, IDI: Indirect Diesel Injection, and others represent different fuel intake technologies.">
+                    </label>
+            </label>
+            <select id="fuel-system" required>
+             <option value="">Select Fuel System</option>
+             <option value="mpfi">MPFI (Multi-Point Fuel Injection)</option>
+             <option value="2bbl">2BBL (Two-Barrel Carburetor)</option>
+             <option value="idi">IDI (Indirect Diesel Injection)</option>
+             <option value="1bbl">1BBL (Single-Barrel Carburetor)</option>
+             <option value="spdi">SPDI (Single Point Direct Injection)</option>
+             <option value="4bbl">4BBL (Four-Barrel Carburetor)</option>
+             <option value="mfi">MFI (Multiport Fuel Injection)</option>
+             <option value="spfi">SPFI (Single Point Fuel Injection)</option>
+            </select>
+          </div>
+
+          <!-- Feature 19 -->
+          <div class="form-group">
+            <label for="bore">Bore (mm)
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+              title="The diameter of the engine's cylinders. It influences the engine's displacement and power output. Larger bores typically allow for larger valves, which can improve airflow and performance.">
+            </label>
+            <input type="number" id="bore" min="2.54" max="3.94" step="0.1" placeholder="e.g. 2.5" required>
+          </div>
+
+          <!-- Feature 20 -->
+          <div class="form-group">
+            <label for="stroke">Stroke (mm)
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+              title="The distance the piston travels within the cylinder from top dead center to bottom dead center. It affects engine displacement and performance characteristics.">
+            </label>
+            <input type="number" id="stroke" min="2.07" max="4.17" step="0.1" placeholder="e.g. 2.5" required>
+          </div>
+
+          <!-- Feature 21 -->
+          <div class="form-group">
+            <label for="compression-ratio">Compression Ratio
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+              title="The ratio of the maximum to minimum volume in the engine cylinder. Higher compression ratios generally lead to better fuel efficiency and performance, but may require higher-octane fuel.">
+            </label>
+            <input type="number" id="compression-ratio" min="7.0" max="23.0" step="0.2" placeholder="e.g. 11.0" required>
+          </div>
+
+          <!-- Feature 22 -->
+          <div class="form-group">
+            <label for="horsepower">Horsepower
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+              title="The power output of the car's engine measured in horsepower . Higher horsepower generally indicates better acceleration and overall performance.">
+            </label>
+            <input type="number" id="horsepower" min="48" max="262" step="4" placeholder="e.g. 120" required>
+          </div>
+
+          <!-- Feature 23 -->
+          <div class="form-group">
+            <label for="peak-rpm">Peak RPM
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+              title="The engine speed (in revolutions per minute) at which the engine produces its maximum power output. Higher RPM values often indicate a sportier engine performance.">
+            </label>
+            <input type="number" id="peak-rpm" min="4150.0" max="6600" step="100" placeholder="e.g. 5000" required>
+          </div>
+
+          <!-- Feature 24 -->
+          <div class="form-group">
+            <label for="city-mpg">City MPG
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+                 title="Fuel efficiency of the car in city driving conditions (in miles per gallon). Higher values indicate better fuel economy in stop-and-go traffic.">
+            </label>
+            <input type="number" id="city-mpg" min="13" max="49" step="2" placeholder="e.g. 25" required>
+          </div>
+
+          <!-- Feature 25 -->
+          <div class="form-group">
+            <label for="highway-mpg">Highway MPG
+              <img src="{{ url_for('static', filename='info.png') }}" class="info-icon"
+              title="Fuel efficiency of the car on highways (in miles per gallon). Higher values indicate better fuel economy during long-distance, high-speed driving.">
+            </label>
+            <input type="number" id="highway-mpg" min="16" max="54" step="2" placeholder="e.g. 25" required>
+          </div>
+        </div>
+
+        <div class="predict-row">
+          <button id="predict-btn" class="predict-btn" type="button">
+            <span class="btn-text">Predict Price</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+          <p class="predict-info">Press Predict when all fields are filled</p>
+        </div>
+      </form>
+
+      <!-- RESULT CARD -->
+      <aside class="card result-card" aria-live="polite">
+        <h3 class="result-title">Estimated Market Value</h3>
+
+        <div class="price-card">
+          <div class="price-meta">
+            <span class="currency">$</span>
+            <span id="price-display" class="price-value">—</span>
+          </div>
+          <p class="price-label">Predicted Price</p>
+        </div>
+
+        <p class="result-tip">Tip: fill realistic measurements for better predictions</p>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <small>Built with care • Dream Cars UI</small>
+    </footer>
+  </main>
+
+  <!-- Script -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
