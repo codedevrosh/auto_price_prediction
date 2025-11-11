@@ -1,4 +1,4 @@
-This project predicts the price of an automobile based on user-input specifications such as engine size, horsepower, fuel type, and body style.
+This project predicts the price of an automobile based on user-input specifications such as engine size, horsepower, fuel type, and body style, etc.
 
 It uses a trained XGBoost regression model to generate accurate price predictions.
 
@@ -161,4 +161,5 @@ Anyone new to the project can easily set it up, retrain the model in Colab, and 
 Arockia Roshan A
 
 Data Science Enthusiast | ML Developer  
+
 
