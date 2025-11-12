@@ -18,7 +18,7 @@ AutoPricePrediction/
 
 ├── app.py                     		# Flask backend file
 
-├── PRCP\_1017\_AutoPricePred.ipynb  	# Jupyter notebook (data analysis + model training)
+├── AutoPricePred.ipynb  	# Google Colab (data analysis + model training)
 
 ├── model.pkl                  		# Trained XGBoost model
 
@@ -163,4 +163,5 @@ Anyone new to the project can easily set it up, retrain the model in Colab, and 
 Arockia Roshan A
 
 Data Science Enthusiast | ML Developer
+
 
