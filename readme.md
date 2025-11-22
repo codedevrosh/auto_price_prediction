@@ -30,14 +30,16 @@ AutoPricePrediction/
 
 ### Technologies Used
 
-Google Colab – Model training \& preprocessing
-Python 3.11+
-Pandas, NumPy – Data handling
-Scikit-learn – Preprocessing and scaling
-XGBoost – Model training and prediction
-Pickle – Model serialization
-Flask – Web framework for backend
-HTML, CSS, JavaScript – Frontend
+| Category | Tools / Libraries |
+|----------|-----------------------------|
+| Environment | Google Colab – Model training & preprocessing |
+| Python Version | Python 3.11+ |
+| Data Handling | Pandas, NumPy |
+| ML & Preprocessing | Scikit-learn (scaling & encoding) |
+| Model Training | XGBoost |
+| Model Serialization | Pickle |
+| Backend (Optional) | Flask |
+| Frontend (Optional) | HTML, CSS, JavaScript |
 
 ## How It Works:
 
@@ -51,12 +53,14 @@ Output Display: The predicted price is shown on the result page of the web inter
 
 ## Quick Start
 
-1\. Navigate to your project folder
+1\. Navigate to your project 
 cd Desktop\\AutoPricePrediction
+
 2\. Install dependencies
 pip install -r requirements.txt
 \# or manually
 pip install flask numpy pandas scikit-learn xgboost
+
 3\. Run the Flask app
 python app.py
 
@@ -67,13 +71,16 @@ python app.py
 ## Conclusion
 
 This project demonstrates a complete end-to-end pipeline for auto mobile price prediction — from data preprocessing and XGBoost model training in Google Colab to deployment with Flask.
+
 It offers a simple yet powerful web interface for real-time predictions.
+
 Anyone new to the project can easily set it up, retrain the model in Colab, and deploy locally or online.
 
-### 👨‍💻 Author
+##  Author
 
 Arockia Roshan A
 Data Science Enthusiast | ML Developer
+
 
 
 
