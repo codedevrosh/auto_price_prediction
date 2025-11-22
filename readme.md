@@ -1,8 +1,9 @@
+## Project Description
 This project predicts the price of an automobile based on user-input specifications such as engine size, horsepower, fuel type, and body style.
 It uses a trained regression model to generate accurate price predictions.
 The project includes a Flask backend, HTML/CSS frontend, and serialized model files (model.pkl, y\_scaler.pkl) for real-time predictions.
 
-##### **Project Structure:**
+## **Project Structure:**
 ```
 AutoPricePrediction/
 
@@ -155,6 +156,7 @@ Anyone new to the project can easily set it up, retrain the model in Colab, and 
 Arockia Roshan A
 
 Data Science Enthusiast | ML Developer
+
 
 
 
