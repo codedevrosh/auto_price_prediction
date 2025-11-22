@@ -39,11 +39,14 @@ Pickle – Model serialization
 Flask – Web framework for backend
 HTML, CSS, JavaScript – Frontend
 
-### How It Works
+## How It Works:
 
 User Input: The user enters car specifications (e.g., fuel type, engine size, horsepower).
+
 Backend Processing: The Flask app loads the trained model (model.pkl) and scaler (y\_scaler.pkl) to preprocess inputs.
-Prediction: The model predicts the car price in real time.
+
+Prediction: The model predicts car prices in real-time.
+
 Output Display: The predicted price is shown on the result page of the web interface.
 
 ## Quick Start
@@ -61,7 +64,7 @@ python app.py
  Enter car details → click Predict Price → see instant results
  Stop the app anytime with CTRL + C
 
-### Conclusion
+## Conclusion
 
 This project demonstrates a complete end-to-end pipeline for auto mobile price prediction — from data preprocessing and XGBoost model training in Google Colab to deployment with Flask.
 It offers a simple yet powerful web interface for real-time predictions.
@@ -71,6 +74,7 @@ Anyone new to the project can easily set it up, retrain the model in Colab, and 
 
 Arockia Roshan A
 Data Science Enthusiast | ML Developer
+
 
 
 
