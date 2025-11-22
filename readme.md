@@ -79,7 +79,9 @@ Anyone new to the project can easily set it up, retrain the model in Colab, and 
 ##  Author
 
 Arockia Roshan A
+
 Data Science Enthusiast | ML Developer
+
 
 
 
