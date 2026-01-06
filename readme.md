@@ -11,7 +11,7 @@ AutoPricePrediction/
 ├── app.py                     		# Flask backend file
 ├── AutoPricePred.ipynb  	        # Google Colab (data analysis + model training)
 ├── model.pkl                  		# Trained XGBoost model
-├── y\_scaler.pkl              		# StandardScaler for input scaling
+├── y_scaler.pkl              		# StandardScaler for input scaling
 ├── Procfile                            # Deployment instruction file for Render/Railway
 │
 ├── templates/                 		# HTML frontend templates
@@ -81,6 +81,7 @@ Anyone new to the project can easily set it up, retrain the model in Colab, and 
 Arockia Roshan A
 
 Data Science Enthusiast | ML Developer
+
 
 
 
